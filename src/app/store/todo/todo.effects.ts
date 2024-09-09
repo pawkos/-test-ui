@@ -38,7 +38,7 @@ export class TodoEffects {
       ofType(TodoActions.updateTodo),
       switchMap(({ id, changes }) =>
         this.todoService.updateTodo(id, changes).pipe(
-          map(todo => TodoActions.updateTodoSuccess({ todo })),
+          map(todo => TodoActions.updateTodoSuccess({ todo: todo[1][0] })),
           catchError(error => of(TodoActions.updateTodoFailure({ error: error?.error?.message || error.message || 'An error occurred' })))
         )
       )

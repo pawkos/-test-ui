@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
+import { Router } from '@angular/router';
 
 interface AuthResponse {
     email: string;
@@ -15,13 +16,14 @@ interface AuthResponse {
 export class AuthService {
     private apiUrl = environment.apiUrl;
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient, private router: Router) { }
 
     login(email: string, password: string): Observable<AuthResponse> {
         return this.http.post<AuthResponse>(`${this.apiUrl}/auth/login`, { email, password })
             .pipe(
                 tap((response: any) => {
                     localStorage.setItem('token', response.token);
+                    this.router.navigate(['/']);
                 }),
                 catchError(this.handleError)
             );
@@ -32,6 +34,7 @@ export class AuthService {
             .pipe(
                 tap((response: any) => {
                     localStorage.setItem('token', response.token);
+                    this.router.navigate(['/']);
                 }),
                 catchError(this.handleError)
             );
@@ -43,6 +46,7 @@ export class AuthService {
                 catchError(this.handleError)
             );*/
         localStorage.removeItem('token');
+        this.router.navigate(['/']);
         return of(undefined);
     }
 
