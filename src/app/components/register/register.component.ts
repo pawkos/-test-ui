@@ -60,9 +60,11 @@ export class RegisterComponent {
 
     onSubmit() {
         if (this.registerForm.valid) {
-            const email = this.registerForm.get('email')?.value as string;
-            const password = this.registerForm.get('password')?.value as string;
-            this.store.dispatch(register({ email, password }));
+            //const email = this.registerForm.get('email')?.value as string;
+            //const password = this.registerForm.get('password')?.value as string;
+            //this.store.dispatch(register({ email, password }));
+            const { email, password } = this.registerForm.value;
+            this.store.dispatch(register({ email: email!, password: password! }));
         }
     }
 }

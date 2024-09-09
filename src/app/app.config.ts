@@ -8,6 +8,8 @@ import { provideClientHydration } from '@angular/platform-browser';
 import { routes } from './app.routes';
 import { authReducer } from './store/auth/auth.reducer';
 import { AuthEffects } from './store/auth/auth.effects';
+import { todoReducer } from './store/todo/todo.reducer';
+import { TodoEffects } from './store/todo/todo.effects';
 
 export const appConfig: ApplicationConfig = {
     providers: [
@@ -15,7 +17,8 @@ export const appConfig: ApplicationConfig = {
         provideRouter(routes),
         provideStore(),
         provideState({ name: 'auth', reducer: authReducer }),
-        provideEffects([AuthEffects]),
+        provideState({ name: 'todos', reducer: todoReducer }),
+        provideEffects([AuthEffects, TodoEffects]),
         provideHttpClient(withFetch()),
         provideAnimations(),
         provideClientHydration(),

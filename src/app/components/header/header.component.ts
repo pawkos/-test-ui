@@ -13,7 +13,7 @@ import { logout } from '../../store/auth/auth.actions';
   imports: [CommonModule, RouterLink, MatToolbarModule, MatButtonModule, AsyncPipe],
   template: `
     <mat-toolbar color="primary">
-      <span>My App</span>
+      <span>TODO UI</span>
       <span class="flex-grow"></span>
       <a mat-button routerLink="/">Home</a>
       <ng-container *ngIf="(isLoggedIn$ | async) === false; else loggedIn">

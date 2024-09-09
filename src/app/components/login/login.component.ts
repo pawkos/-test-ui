@@ -63,9 +63,11 @@ export class LoginComponent {
 
     onSubmit() {
         if (this.loginForm.valid) {
-            const email = this.loginForm.get('email')?.value as string;
-            const password = this.loginForm.get('password')?.value as string;
-            this.store.dispatch(login({ email, password }));
+            //const email = this.loginForm.get('email')?.value as string;
+            //const password = this.loginForm.get('password')?.value as string;
+            //this.store.dispatch(login({ email, password }));
+            const { email, password } = this.loginForm.value;
+            this.store.dispatch(login({ email: email!, password: password! }));
         }
     }
 }

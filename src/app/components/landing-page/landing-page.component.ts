@@ -11,7 +11,7 @@ import { selectIsLoggedIn } from '../../store/auth/auth.selectors';
     template: `
     <mat-card>
       <mat-card-header>
-        <mat-card-title>Welcome to My App</mat-card-title>
+        <mat-card-title>Welcome to TODO UI</mat-card-title>
       </mat-card-header>
       <mat-card-content>
         <p>You are currently {{ (isLoggedIn$ | async) ? 'logged in' : 'not logged in' }}.</p>
