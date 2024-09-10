@@ -1,16 +1,15 @@
-# Angular Landing Page with Authentication
+## Description
 
-This project is a simple landing page using the latest Angular with JWT registration and authentication. It uses standalone components, NgRx Store, TailwindCSS, and Material Design.
-
-## Features
-
-- Landing page displaying user login status
-- JWT registration and authentication with email and password
-- Navigation menu with login, logout, and register options
-- Loading indicator and error handling
-- NgRx Store for state management
-- TailwindCSS for styling
-- Material Design components
+Software Developer Test - Frontend.
+Requirements:
+- Angular 16+
+- Authentication screen with email and password
+- TODO screen where you can CREATE, UPDATE, DELETE and READ
+- README with steps to run the project
+- Running on PORT 4200
+Optional:
+- TailwindCSS
+- Material Design
 
 ## Setup Instructions
 
@@ -19,16 +18,10 @@ This project is a simple landing page using the latest Angular with JWT registra
    ```
    npm install
    ```
-3. Set up environment variables:
-   Create a `src/environments/environment.ts` file with your API URL:
-   ```typescript
-   export const environment = {
-     production: false,
-     apiUrl: 'https://localhost:3000'
-   };
-   ```
+3. Set up environment variables in `src/environments/environment.ts` or use default.
+
 4. Run the development server:
    ```
-   ng serve
+   npm start
    ```
 5. Open your browser and navigate to `http://localhost:4200`
